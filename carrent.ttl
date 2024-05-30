@@ -5,13 +5,11 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
-@prefix rental: <https://schema.org/RentalCarReservation> .
+@prefix rental: <https://schema.org/RentalCarReservation#> .
 
 @base <http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#> .
 
 <http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7> rdf:type owl:Ontology .
-
-
 #################################################################
 #    Object Properties
 #################################################################
@@ -21,7 +19,8 @@
 
 
 ###  http://schema.org/broker
-<http://schema.org/broker> rdf:type owl:ObjectProperty .
+<http://schema.org/broker> rdf:type owl:ObjectProperty ;
+                           rdfs:domain :payment .
 
 
 ###  http://schema.org/reservationFor
@@ -62,30 +61,34 @@
 #    Data properties
 #################################################################
 
-###  http://schema.org/broker
-<http://schema.org/broker> rdf:type owl:DatatypeProperty ;
-                           rdfs:domain :payment ;
-                           rdfs:range xsd:int .
-
-
 ###  http://schema.org/dropofTime
-<http://schema.org/dropofTime> rdf:type owl:DatatypeProperty .
+<http://schema.org/dropofTime> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :rental-time ;
+                               rdfs:range xsd:dateTimeStamp .
 
 
 ###  http://schema.org/modifiedTime
-<http://schema.org/modifiedTime> rdf:type owl:DatatypeProperty .
+<http://schema.org/modifiedTime> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :rental-time ;
+                                 rdfs:range xsd:dateTimeStamp .
 
 
 ###  http://schema.org/pickupTime
-<http://schema.org/pickupTime> rdf:type owl:DatatypeProperty .
+<http://schema.org/pickupTime> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :rental-time ;
+                               rdfs:range xsd:dateTimeStamp .
 
 
 ###  http://schema.org/reservationId
-<http://schema.org/reservationId> rdf:type owl:DatatypeProperty .
+<http://schema.org/reservationId> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :reservation ;
+                                  rdfs:range rdf:langString .
 
 
 ###  http://schema.org/totalPrice
-<http://schema.org/totalPrice> rdf:type owl:DatatypeProperty .
+<http://schema.org/totalPrice> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :payment ;
+                               rdfs:range xsd:integer .
 
 
 ###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#car-model
@@ -178,7 +181,9 @@
 
 
 ###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#support
-:support rdf:type owl:DatatypeProperty .
+:support rdf:type owl:DatatypeProperty ;
+         rdfs:domain :support ;
+         rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#vehicle
