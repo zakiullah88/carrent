@@ -1,0 +1,285 @@
+@prefix : <http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix rental: <https://schema.org/RentalCarReservation> .
+
+@base <http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#> .
+
+<http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7> rdf:type owl:Ontology .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://schema.org/BookingTime
+<http://schema.org/BookingTime> rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/broker
+<http://schema.org/broker> rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/reservationFor
+<http://schema.org/reservationFor> rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://schema.org/underName
+<http://schema.org/underName> rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#contactsSupports
+:contactsSupports rdf:type owl:ObjectProperty ;
+                  rdfs:domain :customer ;
+                  rdfs:range :support .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#hasReservation
+:hasReservation rdf:type owl:ObjectProperty ;
+                rdfs:domain :customer ;
+                rdfs:range :reservation .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#hasTransaction
+:hasTransaction rdf:type owl:ObjectProperty ;
+                rdfs:domain :reservation ;
+                rdfs:range :payment .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#includeVehicles
+:includeVehicles rdf:type owl:ObjectProperty ;
+                 rdfs:domain :reservation ;
+                 rdfs:range :vehicle .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://schema.org/broker
+<http://schema.org/broker> rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :payment ;
+                           rdfs:range xsd:int .
+
+
+###  http://schema.org/dropofTime
+<http://schema.org/dropofTime> rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/modifiedTime
+<http://schema.org/modifiedTime> rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/pickupTime
+<http://schema.org/pickupTime> rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/reservationId
+<http://schema.org/reservationId> rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/totalPrice
+<http://schema.org/totalPrice> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#car-model
+:car-model rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :vehicle ;
+           rdfs:domain :vehicle ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#customer
+:customer rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#dispute
+:dispute rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :support ;
+         rdfs:domain :support ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#email
+:email rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :customer ;
+       rdfs:domain :customer ;
+       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#feedback
+:feedback rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :support ;
+          rdfs:domain :support ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#model
+:model rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :vehicle ;
+       rdfs:domain :vehicle ;
+       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :customer ;
+      rdfs:domain :customer ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#payment
+:payment rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#paymentMethod
+:paymentMethod rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :payment ;
+               rdfs:domain :payment ;
+               rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#paymentStatus
+:paymentStatus rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :payment ;
+               rdfs:domain :payment ;
+               rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#preferences
+:preferences rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :customer ;
+             rdfs:domain :customer ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#price
+:price rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :reservation ;
+       rdfs:domain :reservation ;
+       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#rentalPeriod
+:rentalPeriod rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :reservation ;
+              rdfs:domain :reservation ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#reservation
+:reservation rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#support
+:support rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#vehicle
+:vehicle rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#vehicleType
+:vehicleType rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :vehicle ;
+             rdfs:domain :vehicle ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#year
+:year rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :vehicle ;
+      rdfs:domain :vehicle ;
+      rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://schema.org/Person
+<http://schema.org/Person> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#complain
+:complain rdf:type owl:Class ;
+          rdfs:subClassOf :support .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#coustomer-care
+:coustomer-care rdf:type owl:Class ;
+                rdfs:subClassOf :support .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#customer
+:customer rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#detail
+:detail rdf:type owl:Class ;
+        rdfs:subClassOf :reservation .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#feedback
+:feedback rdf:type owl:Class ;
+          rdfs:subClassOf :support .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#invioces
+:invioces rdf:type owl:Class ;
+          rdfs:subClassOf :payment .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#payment
+:payment rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#payment-method
+:payment-method rdf:type owl:Class ;
+                rdfs:subClassOf :payment .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#payment-statuses
+:payment-statuses rdf:type owl:Class ;
+                  rdfs:subClassOf :payment .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#pricing
+:pricing rdf:type owl:Class ;
+         rdfs:subClassOf :reservation .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#rental-time
+:rental-time rdf:type owl:Class ;
+             rdfs:subClassOf :reservation .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#reservation
+:reservation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#sudan
+:sudan rdf:type owl:Class ;
+       rdfs:subClassOf :vehicle .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#support
+:support rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#suv
+:suv rdf:type owl:Class ;
+     rdfs:subClassOf :vehicle .
+
+
+###  http://www.semanticweb.org/mrwas/ontologies/2024/4/untitled-ontology-7#vehicle
+:vehicle rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
